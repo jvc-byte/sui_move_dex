@@ -38,6 +38,7 @@ module amm::uniswapV2 {
     }
 
     /// Calculates sqrt(a * b).
+    #[allow(deprecated_usage)]
     fun mulsqrt(a: u64, b: u64): u64 {
         (math::sqrt_u128((a as u128) * (b as u128)) as u64)
     }
@@ -135,6 +136,7 @@ module amm::uniswapV2 {
     }
 
     // returns: 0 if a < b; 1 if a == b; 2 if a > b
+    #[allow(deprecated_usage)]
     public fun cmp_type_names(a: &TypeName, b: &TypeName): u8 {
         let bytes_a = ascii::as_bytes(type_name::borrow_string(a));
         let bytes_b = ascii::as_bytes(type_name::borrow_string(b));
